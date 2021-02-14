@@ -1,0 +1,11 @@
+.product {
+  width: 200px;
+  max-height: 400px;
+  min-height: 400px;
+  height: 400px;
+  overflow: hidden;
+  border-style: solid;
+  border-width: thin;
+  padding: 10px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.8);
+}

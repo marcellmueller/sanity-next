@@ -120,3 +120,9 @@
     flex-direction: column;
   }
 }
+
+.productlist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-top: 130px;
+}
