@@ -1,16 +1,22 @@
+import { useState } from 'react';
 import client from '../client';
 import Product from '../components/product/product';
 import Nav from '../components/nav/nav.js';
 import styles from '../styles/Home.module.css';
+import 'tailwindcss/tailwind.css';
 
 export default function Home(productData) {
+  const [state, setState] = useState({
+    products: productData[0],
+  });
   console.log(productData);
 
-  const products = productData[0].map((product, i) => {
+  const products = state.products.map((product, i) => {
+    console.log(product);
     return (
       <Product
         key={i}
-        id={product.id}
+        slug={product.slug.current}
         title={product.title}
         blurb={product.blurb.en}
         price={product.defaultProductVariant.price}
@@ -26,8 +32,7 @@ export default function Home(productData) {
   );
 }
 
-Home.getInitialProps = async function (context) {
-  // It's important to default the slug so that it doesn't return "undefined"
+Home.getInitialProps = async function () {
   const productData = await client.fetch(
     `
     *[_type == "product" ]
