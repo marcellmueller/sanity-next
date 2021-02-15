@@ -4,23 +4,22 @@ import Product from '../components/product/product';
 import Nav from '../components/nav/nav.js';
 import Login from '../components/login/login.js';
 import Search from '../components/search/search.js';
-
 import styles from '../styles/Home.module.css';
 import 'tailwindcss/tailwind.css';
 
-export default function Home(productData) {
+export default function Home(props) {
   const [state, setState] = useState({
-    products: productData[0],
+    products: props[0],
+    categories: props[1],
+    vendors: props[2],
     loginModal: false,
   });
-  console.log(productData);
 
   useEffect(() => {
     console.log(state);
   }, [state]);
 
   const products = state.products.map((product, i) => {
-    console.log(product);
     return (
       <Product
         key={i}
@@ -50,5 +49,18 @@ Home.getInitialProps = async function () {
   `,
     {}
   );
-  return [productData];
+  const categoryData = await client.fetch(
+    `
+    *[_type == "category" ]
+  `,
+    {}
+  );
+
+  const vendorData = await client.fetch(
+    `
+    *[_type == "vendor" ]
+  `,
+    {}
+  );
+  return [productData, categoryData, vendorData];
 };

@@ -14,7 +14,7 @@ export default function Product(props) {
     price = props.price + '.00';
   }
   return (
-    <div className="m-2 bg-white rounded shadow hover:shadow-md duration-4 items-center  gap-4 lg:gap-8 h-120 max-h-120">
+    <div className="inline-block m-2 bg-white rounded shadow hover:shadow-md duration-4 items-center  gap-4 lg:gap-8 h-120 max-h-120 w-44 max-w-10">
       <div className="object-center mx-auto border-b h-40">
         <img
           className="object-center mx-auto border-b h-40"
