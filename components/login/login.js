@@ -16,6 +16,10 @@ export default function Login(props) {
     bgInactive: 'lightgrey',
   });
 
+  useEffect(() => {
+    console.log(login);
+  }, [login]);
+
   const loginClick = () => {
     setLogin({
       ...login,

@@ -38,6 +38,11 @@ export default function NewUserForm(props) {
   const newUserOnClick = () => {
     props.setState({
       ...props.state,
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      password2: '',
       loginModal: false,
     });
   };
@@ -49,11 +54,11 @@ export default function NewUserForm(props) {
         </label>
         <input
           className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-          id="email"
+          id="firstName"
           type="text"
           value={props.state.firstName}
           onChange={firstNameOnChange}
-          placeholder="Email"
+          placeholder="First Name"
         />
       </div>
       <div className="mb-4">
@@ -62,11 +67,11 @@ export default function NewUserForm(props) {
         </label>
         <input
           className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-          id="email"
+          id="lastName"
           type="text"
           value={props.state.lastName}
           onChange={lastNameOnChange}
-          placeholder="Email"
+          placeholder="Last Name"
         />
       </div>
       <div className="mb-4">
@@ -88,11 +93,11 @@ export default function NewUserForm(props) {
         </label>
         <input
           className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-          id="email"
-          type="text"
+          id="password"
+          type="password"
           value={props.state.password}
           onChange={passwordOnChange}
-          placeholder="Email"
+          placeholder="******************"
         />
       </div>
       <div className="mb-6">
@@ -101,7 +106,7 @@ export default function NewUserForm(props) {
         </label>
         <input
           className="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3"
-          id="password"
+          id="password2"
           type="password"
           value={props.state.password2}
           onChange={password2OnChange}
@@ -109,8 +114,8 @@ export default function NewUserForm(props) {
         />
 
         <p className="text-red text-xs italic">
-          {!props.state.password ? 'Enter a password' : null}
-          {props.state.password !== props.state.password2
+          {!props.login.password ? 'Enter a password' : null}
+          {props.login.password !== props.login.password2
             ? 'Passwords must match'
             : null}
         </p>

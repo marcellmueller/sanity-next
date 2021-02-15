@@ -101,7 +101,7 @@ export default function Nav(props) {
       </div>
 
       {state.showMenu ? (
-        <div className="menu w-full lg:block flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8 ">
+        <div className="menu w-full lg:block flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8 lg:hidden">
           <div className="text-md font-bold text-blue-700 lg:flex-grow">
             <a
               href="#responsive-header"
