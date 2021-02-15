@@ -3,6 +3,8 @@ import client from '../client';
 import Product from '../components/product/product';
 import Nav from '../components/nav/nav.js';
 import Login from '../components/login/login.js';
+import Search from '../components/search/search.js';
+
 import styles from '../styles/Home.module.css';
 import 'tailwindcss/tailwind.css';
 
@@ -34,6 +36,8 @@ export default function Home(productData) {
     <>
       <Nav state={state} setState={setState}></Nav>
       <Login state={state} setState={setState}></Login>
+      <Search state={state} setState={setState}></Search>
+
       <div className={styles.productlist}>{products}</div>
     </>
   );
