@@ -15,8 +15,11 @@ export default function Product(props) {
   }
   return (
     <div className="m-2 bg-white rounded shadow hover:shadow-md duration-4 items-center  gap-4 lg:gap-8 h-120 max-h-120">
-      <div className="flex flex-row justify-between uppercase border-b h-40">
-        <img src={urlFor(props.imageUrl[0]).width(180).height(180).url()} />
+      <div className="object-center mx-auto border-b h-40">
+        <img
+          className="object-center mx-auto border-b h-40"
+          src={urlFor(props.imageUrl[0]).width(180).height(180).url()}
+        />
       </div>
       <h2 className="h-18uppercase font-bold text-blue-dark border-b text-center h-12">
         {props.title}

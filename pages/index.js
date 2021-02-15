@@ -1,15 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import client from '../client';
 import Product from '../components/product/product';
 import Nav from '../components/nav/nav.js';
+import Login from '../components/login/login.js';
 import styles from '../styles/Home.module.css';
 import 'tailwindcss/tailwind.css';
 
 export default function Home(productData) {
   const [state, setState] = useState({
     products: productData[0],
+    loginModal: false,
   });
   console.log(productData);
+
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
 
   const products = state.products.map((product, i) => {
     console.log(product);
@@ -26,7 +32,8 @@ export default function Home(productData) {
   });
   return (
     <>
-      <Nav></Nav>
+      <Nav state={state} setState={setState}></Nav>
+      <Login state={state} setState={setState}></Login>
       <div className={styles.productlist}>{products}</div>
     </>
   );
