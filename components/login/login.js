@@ -35,6 +35,14 @@ export default function Login(props) {
       bgInactive: 'darkgrey',
     });
   };
+
+  const hide = () => {
+    console.log('click');
+    props.setState({
+      ...props.state,
+      loginModal: false,
+    });
+  };
   return (
     <>
       {props.state.loginModal ? (
@@ -74,7 +82,10 @@ export default function Login(props) {
               ></NewUserForm>
             ) : null}
           </div>
-          <div className="w-full h-full fixed block top-0 left-0 bg-black opacity-50 z-auto"></div>
+          <div
+            onClick={hide}
+            className="w-full h-full fixed block top-0 left-0 bg-black opacity-50 z-auto"
+          ></div>
         </div>
       ) : null}
     </>
