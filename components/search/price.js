@@ -32,7 +32,7 @@ export default function Price(props) {
   };
   return (
     <div className="flex flex-row">
-      <h1 className="w-10">$0</h1>
+      <h1 className="w-10">${range.value[0]}</h1>
       <Range
         className="w-40"
         maxValue={100}
@@ -45,7 +45,7 @@ export default function Price(props) {
         onChange={(value) => setRange({ value: value })}
         onAfterChange={get}
       />
-      <h1 className="w-10 ">$50</h1>
+      <h1 className="w-10 ">${range.value[1]}</h1>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import client from '../client';
 import Product from '../components/product/product';
 import Nav from '../components/nav/nav.js';
 import Login from '../components/login/login.js';
+import ProductInfo from '../components/product/productInfo';
 import Search from '../components/search/search.js';
 import styles from '../styles/Home.module.css';
 import 'tailwindcss/tailwind.css';
@@ -13,6 +14,7 @@ export default function Home(props) {
     categories: props[1],
     vendors: props[2],
     loginModal: false,
+    productModal: false,
   });
 
   useEffect(() => {
@@ -23,6 +25,8 @@ export default function Home(props) {
     return (
       <Product
         key={i}
+        state={state}
+        setState={setState}
         slug={product.slug.current}
         title={product.title}
         blurb={product.blurb.en}
@@ -35,6 +39,7 @@ export default function Home(props) {
     <>
       <Nav state={state} setState={setState}></Nav>
       <Login state={state} setState={setState}></Login>
+      <ProductInfo state={state} setState={setState}></ProductInfo>
       <Search state={state} setState={setState}></Search>
 
       <div className={styles.productlist}>{products}</div>
