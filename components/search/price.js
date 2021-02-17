@@ -6,7 +6,7 @@ import client from '../../client';
 
 export default function Price(props) {
   const [range, setRange] = useState({
-    value: [0, 100],
+    value: [0, 50],
   });
 
   useEffect(() => {
@@ -31,13 +31,13 @@ export default function Price(props) {
     return [productData];
   };
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row ">
       <h1 className="w-10">${range.value[0]}</h1>
       <Range
         className="w-40"
-        maxValue={100}
-        minValue={0}
-        defaultValue={[0, 100]}
+        max={50}
+        min={0}
+        defaultValue={[0, 50]}
         allowCross={false}
         overlay={`sdjakda %`}
         formatLabel={(value) => `$${value}`}

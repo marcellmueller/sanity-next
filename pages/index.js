@@ -15,6 +15,7 @@ export default function Home(props) {
     vendors: props[2],
     loginModal: false,
     productModal: false,
+    search: false,
   });
 
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function Home(props) {
       <ProductInfo state={state} setState={setState}></ProductInfo>
       <Search state={state} setState={setState}></Search>
 
-      <div className={styles.productlist}>{products}</div>
+      <div className="w-7/8 fixed lg:left-20 lg:right-20">{products}</div>
     </>
   );
 }
